@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "239937219772",
+    "firebase_url": "https://swipy-4873d.firebaseio.com",
+    "project_id": "swipy-4873d",
+    "storage_bucket": "swipy-4873d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239937219772:android:89fc40673cad8b153274b9",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239937219772-m8bo9eb3pqipiuf2utmkmv89a6h4j1t9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNWgZKFhq3ZWIhANZy3FFhSwdxMtM6y6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239937219772-m8bo9eb3pqipiuf2utmkmv89a6h4j1t9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239937219772:android:3fa44a2b8ff342133274b9",
+        "android_client_info": {
+          "package_name": "com.swiper.swiper_firstbuild"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239937219772-m8bo9eb3pqipiuf2utmkmv89a6h4j1t9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNWgZKFhq3ZWIhANZy3FFhSwdxMtM6y6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239937219772-m8bo9eb3pqipiuf2utmkmv89a6h4j1t9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
