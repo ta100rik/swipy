@@ -10,7 +10,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="flutter_app">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
@@ -22,6 +23,19 @@
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyCYBrFO7NGu-qsj5_4epHravTxBJu0-WXA",
+    authDomain: "swipy-4873d.firebaseapp.com",
+    databaseURL: "https://swipy-4873d.firebaseio.com",
+    projectId: "swipy-4873d",
+    storageBucket: "swipy-4873d.appspot.com",
+    messagingSenderId: "239937219772",
+    appId: "1:239937219772:web:9bc3f1e1fe65413a3274b9",
+    measurementId: "G-8689507BKE"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('flutter_service_worker.js');

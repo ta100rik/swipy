@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -52,29 +54,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   double imagewidth;
   double imageheight;
-  String imagesource = 'lib/assets/lake.jpg';
+  String imagesource = 'https://firebasestorage.googleapis.com/v0/b/swipy-4873d.appspot.com/o/299782b9-b45f-4cd6-b1db-abee2be08d81.jpg?alt=media&token=a9e22f34-583a-41df-bbbc-b4039959ebc3';
+  Future<QuerySnapshot> querySnapshot =  FirebaseFirestore.instance.collection("users").get();
+  int counter = 0;
 
 
-  double _updateState(){
+  double _updateState(arr,counter){
+
+
     setState(() {
-      imagesource = 'lib/assets/test.png';
+      arr.then((value) => this.imagesource = value.toList()[counter]);
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
+    final arr = querySnapshot.then((value) => value.docs.map((e) => e.get("url")).toList());
     imageheight =  MediaQuery.of(context).size.height*0.80;
     imagewidth =  MediaQuery.of(context).size.width * 0.90;
+
+
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-
-
 
     Widget PictureSection =  Column(
         children:[
@@ -90,8 +100,8 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          getButton(Colors.red,Icons.thumb_down_alt,'false'),
-          getButton(Colors.green,Icons.thumb_up_alt,'true')
+          getButton(Colors.red,Icons.thumb_down_alt,'false',arr),
+          getButton(Colors.green,Icons.thumb_up_alt,'true',arr)
         ],
       ),
     );
@@ -108,12 +118,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Image getImage(imagesrc){
-    return Image.asset(
+    return Image.network(
       imagesrc,
       fit: BoxFit.cover,
     );
   }
-  Column getButton(ButtonColor,IconType,bol){
+
+  Column getButton(ButtonColor,IconType,bol,arr){
    return Column(
        mainAxisSize: MainAxisSize.min,
        mainAxisAlignment: MainAxisAlignment.center,
@@ -140,7 +151,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: InkWell(
                   onTap: () {
                     debugPrint(bol);
-                    _updateState();
+                    counter++;
+                    _updateState(arr,counter);
                     },
                 splashColor: ButtonColor,
                 borderRadius: BorderRadius.circular(1000.0), //Something large to ensure a circle
